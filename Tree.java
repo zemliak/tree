@@ -61,6 +61,41 @@ public class Tree {
 				cur = cur.child2;
 			cur = cur.child1;
 		}// cur.child1 or 2 is the node that has to be deleted right now
-		Node 
+		if (cur.child1.x == x){
+			Node del = cur.child1;
+			if (del.child1 == null)
+				del = del.child2;
+			else if (del.child2 == null)
+				del = del.child1;
+			else{
+				Node c = del.child2;
+				while (c.child1 != null)
+					c = c.child1;
+				del = c;
+				Node d = del.child2;
+				while (d.child1.child1 != null)
+					d = c.child1;
+				d.child1 = null;
+			}
+			
+		}
+		if (cur.child2.x == x){
+			Node del = cur.child2;
+			if (del.child1 == null)
+				del = del.child2;
+			else if (del.child2 == null)
+				del = del.child1;
+			else{
+				Node c = del.child2;
+				while (c.child1 != null)
+					c = c.child1;
+				del = c;
+				Node d = del.child2;
+				while (d.child1.child1 != null)
+					d = c.child1;
+				d.child1 = null;
+			}
+		}		
 	}
+	
 }
